@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvfo7gkpscd8s"]
+
+[ext_resource type="Script" uid="uid://chtps5af56vfg" path="res://Scripts/GlobalDependencyResolver.cs" id="1_8gdoa"]
+[ext_resource type="Script" uid="uid://ci7w58n13p6s0" path="res://Scripts/GlobalContext.cs" id="2_2g6j8"]
+
+[node name="GlobalBindingContext" type="Node"]
+script = ExtResource("1_8gdoa")
+
+[node name="GlobalContext" type="Node" parent="."]
+script = ExtResource("2_2g6j8")

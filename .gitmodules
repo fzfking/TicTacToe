@@ -1,0 +1,3 @@
+[submodule "TicTacToe/Libs/Di"]
+	path = TicTacToe/Libs/Di
+	url = git@github.com:fzfking/autofac-godot-di.git

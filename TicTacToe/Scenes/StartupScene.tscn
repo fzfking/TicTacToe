@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk48aq1wbpwxu"]
+
+[ext_resource type="Script" uid="uid://dto806oj8anl3" path="res://Scripts/Presentation/StartupController.cs" id="1_kdwq4"]
+
+[node name="StartupScene" type="Node"]
+script = ExtResource("1_kdwq4")
