@@ -11,8 +11,16 @@ public partial class MainScreen : Node
     
     private Timer _timer;
 
+    private LoadingScreenController _loadingScreenController;
+
     [Inject]
-    public void Inject()
+    public void Inject(LoadingScreenController loadingScreenController)
     {
+        _loadingScreenController = loadingScreenController;
+    }
+
+    public override void _Ready()
+    {
+        _loadingScreenController.Hide();
     }
 }

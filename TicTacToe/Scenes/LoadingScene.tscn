@@ -15,7 +15,6 @@ height = 32
 fill_from = Vector2(1, 1)
 
 [node name="LoadingScene" type="Control" node_paths=PackedStringArray("RollingIcon")]
-z_index = 1000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,6 +1,6 @@
 ﻿using AutofacGodotDi;
 
-namespace TicTacToe.Scripts;
+namespace TicTacToe;
 
 public partial class GlobalDependencyResolver : DependencyResolver
 {

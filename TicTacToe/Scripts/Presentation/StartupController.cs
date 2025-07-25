@@ -6,16 +6,21 @@ namespace TicTacToe.Presentation;
 
 public partial class StartupController : Node
 {
-    private NavigationController _navigationController;
+    private LoadingScreenController _loadingScreenController;
+    private ISceneController _sceneController;
 
     [Inject]
-    public void Inject(NavigationController navigationController)
+    public void Inject(LoadingScreenController loadingScreenController, ISceneController sceneController)
     {
-        _navigationController = navigationController;
+        _loadingScreenController = loadingScreenController;
+        _sceneController = sceneController;
     }
 
     public override void _Ready()
     {
-        _navigationController.GoTo("res://Scenes/MainScene.tscn");
+        _loadingScreenController.Show(() =>
+        {
+            _sceneController.ChangeScene("res://Scenes/MainScene.tscn", _loadingScreenController.Reorder);
+        });
     }
 }
