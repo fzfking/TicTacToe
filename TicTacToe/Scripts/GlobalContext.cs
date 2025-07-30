@@ -11,5 +11,9 @@ public partial class GlobalContext :SceneContext
         builder
             .RegisterType<LoadingScreenController>()
             .SingleInstance();
+
+        builder
+            .RegisterType<GameState>()
+            .SingleInstance();
     }
 }

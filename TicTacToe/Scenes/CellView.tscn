@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cc8ie5jcetpy"]
+
+[node name="CellView" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+theme_override_font_sizes/font_size = 24
+text = "X"

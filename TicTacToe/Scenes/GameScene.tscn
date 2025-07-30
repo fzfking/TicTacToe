@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://bls5620psub43"]
+
+[ext_resource type="Script" uid="uid://1ucne1ttdws5" path="res://Scripts/Scopes/GameSceneContext.cs" id="1_2wl7v"]
+[ext_resource type="Script" uid="uid://c1t1si2x1k1mn" path="res://Scripts/Gameplay/View/GameScreen.cs" id="2_4bvgx"]
+
+[node name="GameScene" type="Control" node_paths=PackedStringArray("GameScreen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2wl7v")
+GameScreen = NodePath("Node")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Игрок 1: 1"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Игрок 2: 1"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ход игрока 1"
+horizontal_alignment = 1
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("CellsContainer", "Counters")]
+script = ExtResource("2_4bvgx")
+CellsContainer = NodePath("../MarginContainer/VBoxContainer/GridContainer")
+Counters = {
+1: NodePath("../MarginContainer/VBoxContainer/HBoxContainer/Label"),
+2: NodePath("../MarginContainer/VBoxContainer/HBoxContainer/Label2")
+}
+
+[node name="GameOverPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOverPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.521569)
