@@ -4,14 +4,12 @@ namespace TicTacToe.Presentation;
 
 public partial class AnimatedLoadingText : RichTextLabel
 {
-    private string _originalText;
     private int _dotCount;
     private Timer _timer;
     
     public override void _Ready()
     {
         base._Ready();
-        _originalText = Text;
         _timer = new Timer();
         _timer.WaitTime = 0.5f;
         _timer.Timeout += UpdateText;
@@ -27,6 +25,6 @@ public partial class AnimatedLoadingText : RichTextLabel
             _dotCount = 0;
         }
         
-        Text = _originalText + new string('.', _dotCount);
+        Text = TranslationServer.Translate("Loading") + new string('.', _dotCount);
     }
 }

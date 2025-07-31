@@ -24,10 +24,8 @@ public class TurnState : IState
 
     public void Enter()
     {
-        var playerSymbol = CurrentPlayer == OccupiedBy.Player1 ? "X" : "O";
-        
         //todo: gettext usage
-        _gameScreen.PlayerTurnLabel.Text = $"Ход игрока {playerSymbol}";
+        _gameScreen.PlayerTurnLabel.Text = TranslationServer.Translate("PlayerTurn") + " " + TranslationServer.Translate(CurrentPlayer.ToString());
         _choiceBehaviour = _gameState.Session.CurrentMatch.CurrentPlayer switch
         {
             OccupiedBy.Player1 => new PlayerChoiceBehaviour(_gameState, _mapViewController),

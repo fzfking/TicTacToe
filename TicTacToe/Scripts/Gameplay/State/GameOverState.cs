@@ -1,4 +1,5 @@
 ﻿using AutofacGodotDi;
+using Godot;
 using TicTacToe.Gameplay.Enums;
 using TicTacToe.Gameplay.View;
 
@@ -24,12 +25,9 @@ public class GameOverState : IState
         _gameScreen.GameOverPopup.RetryButton.Pressed += RetryButtonPressed;
         _gameScreen.GameOverPopup.ExitButton.Pressed += ExitButtonPressed;
         
-        //todo: gettext usage
         var winnerText = _gameState.Session.CurrentMatch.IsGameDraw 
-            ? "Матч закончился ничьей." 
-            : _gameState.Session.CurrentMatch.Winner == OccupiedBy.Player1 
-                ? "Матч закончился победой игрока X" 
-                : "Матч закончился победой игрока O";
+            ? TranslationServer.Translate("GameDraw")
+            : TranslationServer.Translate($"{_gameState.Session.CurrentMatch.Winner.ToString()}Wins");
         
         _gameScreen.GameOverPopup.WinnerLabel.Text = winnerText;
         _gameScreen.GameOverPopup.Show();

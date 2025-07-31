@@ -1,0 +1,78 @@
+# LANGUAGE translation for TicTacToe for the following files:
+# res://Scenes/StartupScene.tscn
+# res://Scenes/MainScene.tscn
+# res://Scenes/LoadingScene.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TicTacToe\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: Scenes/MainScene.tscn
+msgid "GameTitle"
+msgstr "[i]Крестики нолики[/i]"
+
+#: Scenes/MainScene.tscn
+msgid "PlayVsBotButton"
+msgstr "Играть против ИИ"
+
+#: Scenes/MainScene.tscn
+msgid "PlayVsFriendButton"
+msgstr "Играть против друга"
+
+#: Scenes/LoadingScene.tscn
+msgid "Loading"
+msgstr "Загрузка"
+
+#: Scenes/GameScene.tscn
+msgid "RetryButton"
+msgstr "Повторить"
+
+#: Scenes/GameScene.tscn
+msgid "ExitButton"
+msgstr "Выйти"
+
+#: Scripts
+msgid "Player1"
+msgstr "Х"
+
+msgid "Player2"
+msgstr "О"
+
+msgid "None"
+msgstr " "
+
+msgid "Player1Wins"
+msgstr "Матч закончился победой игрока Х"
+
+msgid "Player2Wins"
+msgstr "Матч закончился победой игрока О"
+
+msgid "GameDraw"
+msgstr "Матч закончился ничьей"
+
+msgid "PlayerTurn"
+msgstr "Ход игрока"
+
+msgid "PlayerHint"
+msgstr "Игрок"
+
+#~ msgid "[i]Tic Tac Toe[/i]"
+#~ msgstr "[i]Крестики нолики[/i]"
+
+#~ msgid "Play with bot"
+#~ msgstr "Играть против ИИ"
+
+#~ msgid "Play with friend"
+#~ msgstr "Играть против друга"

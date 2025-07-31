@@ -12,7 +12,7 @@ config_version=5
 
 config/name="TicTacToe"
 run/main_scene="uid://dk48aq1wbpwxu"
-config/features=PackedStringArray("4.4", "C#", "Mobile")
+config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -30,6 +30,11 @@ window/handheld/orientation=5
 [dotnet]
 
 project/assembly_name="TicTacToe"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localization/ru.po", "res://Localization/en.po")
+locale/translations_pot_files=PackedStringArray("res://Scenes/StartupScene.tscn", "res://Scenes/MainScene.tscn", "res://Scenes/LoadingScene.tscn", "res://Scenes/GameScene.tscn")
 
 [rendering]
 

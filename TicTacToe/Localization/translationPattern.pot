@@ -1,0 +1,64 @@
+# LANGUAGE translation for TicTacToe for the following files:
+# res://Scenes/StartupScene.tscn
+# res://Scenes/MainScene.tscn
+# res://Scenes/LoadingScene.tscn
+# res://Scenes/GameScene.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TicTacToe\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Scenes/MainScene.tscn
+msgid "GameTitle"
+msgstr ""
+
+#: Scenes/MainScene.tscn
+msgid "PlayVsBotButton"
+msgstr ""
+
+#: Scenes/MainScene.tscn
+msgid "PlayVsFriendButton"
+msgstr ""
+
+#: Scenes/LoadingScene.tscn
+msgid "Loading"
+msgstr ""
+
+#: Scenes/GameScene.tscn
+msgid "RetryButton"
+msgstr ""
+
+#: Scenes/GameScene.tscn
+msgid "ExitButton"
+msgstr ""
+
+#: Scripts
+msgid "Player1"
+msgstr ""
+
+msgid "Player2"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Player1Wins"
+msgstr ""
+
+msgid "Player2Wins"
+msgstr ""
+
+msgid "GameDraw"
+msgstr ""
+
+msgid "PlayerTurn"
+msgstr ""
+
+msgid "PlayerHint"
+msgstr ""

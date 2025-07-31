@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Godot;
 using TicTacToe.Gameplay.Enums;
 using TicTacToe.Gameplay.Factory;
@@ -13,6 +14,8 @@ public class MapViewController : IDisposable
     private readonly CellViewFactory _cellViewFactory;
     private readonly GameScreen _gameScreen;
     private bool _isInputLocked = true;
+
+    private StringBuilder _localizedTextBuilder = new();
     
     public Dictionary<Vector2I, Button> Buttons { get; private set; }
 
@@ -28,15 +31,8 @@ public class MapViewController : IDisposable
         _gameState.Session.CurrentMatch.Map.OnCellOccupied += Update;
         Buttons = _cellViewFactory.CreateButtons(new Vector2I(3, 3));
         
-        var player1Wins = _gameState.Session.Wins.GetValueOrDefault(OccupiedBy.Player1, 0);
-        
-        //todo: gettext usage
-        _gameScreen.Player1Label.Text = $"Игрок X: {player1Wins}";
-        
-        var player2Wins = _gameState.Session.Wins.GetValueOrDefault(OccupiedBy.Player2, 0);
-        
-        //todo: gettext usage
-        _gameScreen.Player2Label.Text = $"Игрок X: {player2Wins}";
+        _gameScreen.Player1Label.Text = GetCounterTextForPlayer(OccupiedBy.Player1);
+        _gameScreen.Player2Label.Text = GetCounterTextForPlayer(OccupiedBy.Player2);
         
         SubscribeCells();
     }
@@ -80,12 +76,7 @@ public class MapViewController : IDisposable
         foreach (var (position, cell) in _gameState.Session.CurrentMatch.Map.Cells)
         {
             var button = Buttons[position];
-            var actualText = cell.OccupiedBy switch
-            {
-                OccupiedBy.None => string.Empty,
-                OccupiedBy.Player1 => "X",
-                OccupiedBy.Player2 => "O"
-            };
+            var actualText = TranslationServer.Translate(cell.OccupiedBy.ToString());
 
             if (button.Text != actualText)
             {
@@ -93,5 +84,18 @@ public class MapViewController : IDisposable
                 button.Text = actualText;
             }
         }
+    }
+
+    private string GetCounterTextForPlayer(OccupiedBy player)
+    {
+        var player2Wins = _gameState.Session.Wins.GetValueOrDefault(player, 0);
+        _localizedTextBuilder.Clear();
+        _localizedTextBuilder.Append(TranslationServer.Translate("PlayerHint"));
+        _localizedTextBuilder.Append(' ');
+        _localizedTextBuilder.Append(TranslationServer.Translate(player.ToString()));
+        _localizedTextBuilder.Append(": ");
+        _localizedTextBuilder.Append(player2Wins);
+
+        return _localizedTextBuilder.ToString();
     }
 }
