@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Godot;
 using TicTacToe.Gameplay.Enums;
 using TicTacToe.Gameplay.Factory;
+using TicTacToe.Gameplay.View;
 
 namespace TicTacToe.Gameplay;
 
@@ -10,20 +11,33 @@ public class MapViewController : IDisposable
 {
     private readonly GameState _gameState;
     private readonly CellViewFactory _cellViewFactory;
+    private readonly GameScreen _gameScreen;
     private bool _isInputLocked = true;
     
     public Dictionary<Vector2I, Button> Buttons { get; private set; }
 
-    public MapViewController(GameState gameState, CellViewFactory cellViewFactory)
+    public MapViewController(GameState gameState, CellViewFactory cellViewFactory, GameScreen gameScreen)
     {
         _gameState = gameState;
         _cellViewFactory = cellViewFactory;
+        _gameScreen = gameScreen;
     }
 
     public void Init()
     {
         _gameState.Session.CurrentMatch.Map.OnCellOccupied += Update;
         Buttons = _cellViewFactory.CreateButtons(new Vector2I(3, 3));
+        
+        var player1Wins = _gameState.Session.Wins.GetValueOrDefault(OccupiedBy.Player1, 0);
+        
+        //todo: gettext usage
+        _gameScreen.Player1Label.Text = $"Игрок X: {player1Wins}";
+        
+        var player2Wins = _gameState.Session.Wins.GetValueOrDefault(OccupiedBy.Player2, 0);
+        
+        //todo: gettext usage
+        _gameScreen.Player2Label.Text = $"Игрок X: {player2Wins}";
+        
         SubscribeCells();
     }
 

@@ -51,12 +51,14 @@ public class CheckWinnerState : IState
 
         if (winner != OccupiedBy.None)
         {
-            _gameStateMachine.EnterState<TurnState>();
+            _gameState.Session.EndMatch(true, winner);
+            _gameStateMachine.EnterState<GameOverState>();
         }
         else
         {
             if (map.Cells.Values.All(x => x.IsOccupied))
             {
+                _gameState.Session.EndMatch(false);
                 _gameStateMachine.EnterState<GameOverState>();
             }
             else

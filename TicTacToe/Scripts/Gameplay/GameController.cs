@@ -30,8 +30,8 @@ public class GameController : IEntryPoint
         _mapViewController.Init();
         _gameStateMachine.SetupStates(new Dictionary<Type, IState>
         {
-            { typeof(TurnState), new TurnState(_gameState, _gameStateMachine, _mapViewController) },
-            { typeof(GameOverState), new GameOverState(_gameStateMachine, _sceneController, _gameScreen) },
+            { typeof(TurnState), new TurnState(_gameState, _gameStateMachine, _mapViewController, _gameScreen) },
+            { typeof(GameOverState), new GameOverState(_gameStateMachine, _sceneController, _gameScreen, _gameState) },
             { typeof(CheckWinnerState), new CheckWinnerState(_gameState, _gameStateMachine)}
         });
         _gameStateMachine.EnterState<TurnState>();

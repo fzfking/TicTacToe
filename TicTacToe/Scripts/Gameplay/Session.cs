@@ -22,4 +22,18 @@ public class Session
     {
         CurrentMatch = new Match();
     }
+
+    public void EndMatch(bool hasWinner, OccupiedBy winner = OccupiedBy.None)
+    {
+        if (hasWinner)
+        {
+            CurrentMatch.Complete(winner);
+            if (!Wins.TryAdd(winner, 1)) 
+                Wins[winner]++;
+        }
+        else
+        {
+            CurrentMatch.SetGameDraw();
+        }
+    }
 }
