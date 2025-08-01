@@ -24,7 +24,6 @@ public class TurnState : IState
 
     public void Enter()
     {
-        //todo: gettext usage
         _gameScreen.PlayerTurnLabel.Text = TranslationServer.Translate("PlayerTurn") + " " + TranslationServer.Translate(CurrentPlayer.ToString());
         _choiceBehaviour = _gameState.Session.CurrentMatch.CurrentPlayer switch
         {
